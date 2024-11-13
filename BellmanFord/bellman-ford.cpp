@@ -2,21 +2,20 @@
 #include <vector>
 #include <cstring>
 #include <fstream>
+#include <limits.h>
 
 using namespace std;
 
-int infinite = 1000000;
-
 string bellmanFord(vector<vector<pair<int, int>>> &adj, int s) {
     int n = adj.size();
-    vector<int> dist(n, infinite);
+    vector<int> dist(n, INT_MAX);
     dist[s] = 0;
 
     for (int u = 0; u < n; ++u) {
         for (int j = 0; j < adj[u].size(); ++j) {
             int v = adj[u][j].first;
             int w = adj[u][j].second;
-            if (dist[u] != infinite && dist[u] + w < dist[v]) {
+            if (dist[u] != INT_MAX && dist[u] + w < dist[v]) {
                 dist[v] = dist[u] + w;
             }
         }
@@ -24,11 +23,11 @@ string bellmanFord(vector<vector<pair<int, int>>> &adj, int s) {
 
     string distances = "";
     for (int i = 1; i < n; ++i) {
-        if(dist[i] != infinite) {
+        if(dist[i] != INT_MAX) {
             distances += to_string(i) + ":" + to_string(dist[i]) + " ";
         }
         else {
-            distances += to_string(i) + ":" + "infinite" + " ";
+            distances += to_string(i) + ":" + "INT_MAX" + " ";
         }
     }
     return distances;
