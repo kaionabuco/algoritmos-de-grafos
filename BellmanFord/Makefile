@@ -1,11 +1,8 @@
-CXX=g++
-CXXFLAGS=-std=c++11 -Wall
-TARGET=bellman-ford
+all: bellman-ford
 
-all: $(TARGET)
-
-$(TARGET): bellman-ford.cpp
-	$(CXX) $(CXXFLAGS) bellman-ford.cpp -o $(TARGET)
+bellman-ford: bellman-ford.cpp
+	g++ bellman-ford.cpp -o bellman-ford
+	g++ bellman-ford.cpp -o bellman-ford.bin
 
 clean:
-	rm -f $(TARGET)
+	rm bellman-ford bellman-ford.bin

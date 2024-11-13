@@ -1,11 +1,8 @@
-CXX=g++
-CXXFLAGS=-std=c++11 -Wall
-TARGET=prim
+all: prim
 
-all: $(TARGET)
-
-$(TARGET): prim.cpp
-	$(CXX) $(CXXFLAGS) prim.cpp -o $(TARGET)
+prim: prim.cpp
+	g++ prim.cpp -o prim
+	g++ prim.cpp -o prim.bin
 
 clean:
-	rm -f $(TARGET)
+	rm prim prim.bin
