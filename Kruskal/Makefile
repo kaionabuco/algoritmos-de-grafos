@@ -1,11 +1,8 @@
-CXX=g++
-CXXFLAGS=-std=c++11 -Wall
-TARGET=kruskal
+all: kruskal
 
-all: $(TARGET)
-
-$(TARGET): kruskal.cpp
-	$(CXX) $(CXXFLAGS) kruskal.cpp -o $(TARGET)
+kruskal: kruskal.cpp
+	g++ kruskal.cpp -o kruskal
+	g++ kruskal.cpp -o kruskal.bin
 
 clean:
-	rm -f $(TARGET)
+	rm kruskal kruskal.bin
