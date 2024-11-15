@@ -27,7 +27,7 @@ string bellmanFord(vector<vector<pair<int, int>>> &adj, int s) {
             distances += to_string(i) + ":" + to_string(dist[i]) + " ";
         }
         else {
-            distances += to_string(i) + ":" + "INT_MAX" + " ";
+            distances += to_string(i) + ":" + "infinite" + " ";
         }
     }
     return distances;
